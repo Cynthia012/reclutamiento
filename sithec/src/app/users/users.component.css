@@ -1,0 +1,17 @@
+.container-12{
+    text-align: center;
+}
+
+.abs-center {
+    display: flex;        
+    justify-content: center;
+}
+
+img{
+    width: 100px;
+}
+
+p{
+    margin: 0px;
+}
+

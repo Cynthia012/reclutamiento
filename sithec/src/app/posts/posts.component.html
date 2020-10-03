@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container-12 p-3 bg-secondary ">
+  <div class="row abs-center">
+    <div class="card bg-dark mt-3 p-3 w-75 text-light" *ngFor="let item of posts; let i = index">
+      <h5> Titulo: {{item.title}}</h5>
+      <p>{{item.body}}</p>
+      <ng-container *ngFor="let user of users">
+        <ng-container *ngIf="user.id==item.userId">
+          <p class="text-right "><i class="far fa-user"> <a routerLink="/User/{{item.userId}}"> {{user.name}}</a></i>
+          </p>
+        </ng-container>
+      </ng-container>
+      <button class="btn btn-outline-light" (click)="mostrarComentarios(item.id, i)">Comentarios</button>
+      <ng-container *ngIf="band_comment[i]">
+        <div class="card bg-light m-4 p-3 text-dark ">
+          <div *ngFor="let comentario of comentarios">
+            <p><b>{{comentario.name}}</b></p>
+            <p>{{comentario.body}}</p>
+            <p class="text-muted text-right">by- {{comentario.email}}</p>
+            <hr>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
